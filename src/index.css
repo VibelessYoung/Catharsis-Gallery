@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 20s linear;
+    -webkit-animation: logo-spin infinite 20s linear;
+  }
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+header {
+  background-image: url("./assets/blue-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
