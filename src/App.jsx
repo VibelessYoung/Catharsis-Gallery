@@ -2,18 +2,13 @@ import { useState } from "react";
 import Logo from "./assets/logo.png";
 function App() {
   const [value, setValue] = useState("");
-
-  const images = [
-    { id: 1, src: "https://picsum.photos/300/400" },
-    { id: 2, src: "https://picsum.photos/300/500" },
-    { id: 3, src: "https://picsum.photos/300/350" },
-    { id: 4, src: "https://picsum.photos/300/450" },
-    { id: 5, src: "https://picsum.photos/300/380" },
-    { id: 6, src: "https://picsum.photos/300/520" },
-    { id: 7, src: "https://picsum.photos/300/360" },
-    { id: 8, src: "https://picsum.photos/300/470" },
-  ];
-
+  const fetchImages = () => {
+    fetch(``)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return (
     <div className="min-h-screen">
       <header className="bg-gray-800 flex justify-between items-center p-6 fixed w-full z-50 rounded-full mt-5">
@@ -63,14 +58,14 @@ function App() {
           style={{ columnCount: 4, columnGap: "1rem" }}
         ></div>
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
-          {images.map((img) => (
+          {/* {images.map((img) => (
             <img
               key={img.id}
               src={img.src}
               className="w-full mb-4 rounded-xl shadow-md transition-all duration-500 hover:scale-105 cursor-pointer"
               alt="gallery"
             />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
