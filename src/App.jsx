@@ -2,11 +2,14 @@ import { useState } from "react";
 import Logo from "./assets/logo.png";
 function App() {
   const [value, setValue] = useState("");
+  const [images, setImages] = useState([]);
   const fetchImages = () => {
-    fetch(``)
+    fetch(
+      `https://api.unsplash.com/search/photos?query=${value}&client_id=GPF-MAgYtuHxhx8mBZzLbE0vUhvym2soozQ7ubrU0p0`
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setImages(data.results);
       });
   };
   return (
@@ -19,7 +22,10 @@ function App() {
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <button className="bg-cyan-400 p-2 rounded-full text-white transition-all duration-300 hover:bg-cyan-500 cursor-pointer">
+          <button
+            onClick={fetchImages}
+            className="bg-cyan-400 p-2 rounded-full text-white transition-all duration-300 hover:bg-cyan-500 cursor-pointer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -58,14 +64,13 @@ function App() {
           style={{ columnCount: 4, columnGap: "1rem" }}
         ></div>
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
-          {/* {images.map((img) => (
+          {images.map((img) => (
             <img
               key={img.id}
-              src={img.src}
+              src={img.urls.small}
               className="w-full mb-4 rounded-xl shadow-md transition-all duration-500 hover:scale-105 cursor-pointer"
-              alt="gallery"
             />
-          ))} */}
+          ))}
         </div>
       </div>
     </div>
