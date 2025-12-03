@@ -18,11 +18,11 @@
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
+  transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  -o-transition: all 0.8s;
   -webkit-filter: drop-shadow(0 0 2em #646cffaa);
 }
 
@@ -31,4 +31,17 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
 }
