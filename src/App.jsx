@@ -1,11 +1,18 @@
+import { useState } from "react";
 import Logo from "./assets/logo.png";
 function App() {
+  const [value, setValue] = useState("");
+  console.log(value);
   return (
     <>
       <header className="bg-gray-800 flex justify-between items-center p-10">
-        <h1 className="text-xl font-black text-white">CATHARSIS GALLERY</h1>
         <div className="flex gap-2">
-          <input type="text" className="bg-white rounded-full h-10 w-60 px-3" />
+          <input
+            type="text"
+            className="bg-white rounded-full h-10 w-60 px-3"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
           <button className="bg-cyan-400 p-2 rounded-full text-white transition-all duration-300 hover:bg-cyan-500 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
